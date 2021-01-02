@@ -26,7 +26,8 @@ def get_dataset(
         image = read_image(row)
         return image
 
-    dataset = dataset.map(load_row, num_parallel_calls=load_num_parallel_calls)
+    dataset = dataset.map(
+        load_row, num_parallel_calls=tf.data.experimental.AUTOTUNE)
 
     if shuffle:
         dataset = dataset.shuffle(100)

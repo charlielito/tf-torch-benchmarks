@@ -52,6 +52,19 @@ def get_dataloader(
     )
 
 
+class IterDataset(torch.utils.data.Dataset):
+    def __init__(self, iter, length):
+        super().__init__()
+        self.iter = iter
+        self.length = length
+
+    def __len__(self):
+        return self.length
+
+    def __getitem__(self, i):
+        return next(self.iter)
+
+
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     import os

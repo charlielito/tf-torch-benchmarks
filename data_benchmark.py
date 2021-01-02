@@ -12,12 +12,12 @@ from tensorflow_imp.data import get_dataset
 
 def main():
     data_dir = "gs://tf-vs-torch/test-data/images/pokemon_jpg"
-    data_dir = "data/pokemon_jpg"
+    # data_dir = "data/pokemon_jpg"
     image_paths = [
         os.path.join(data_dir, file) for file in tf.io.gfile.listdir(data_dir)
     ]
 
-    image_paths = image_paths[:100]
+    image_paths = image_paths[:50]
 
     batch_size = 32
     num_workers = 4

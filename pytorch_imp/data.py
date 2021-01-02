@@ -15,6 +15,7 @@ def read_image(filepath):
     buf = read_fn(filepath)
     buf = np.frombuffer(buf, np.uint8)
     arr = cv2.imdecode(buf, cv2.IMREAD_UNCHANGED)
+    # arr = cv2.imread(filepath)
     arr = cv2.cvtColor(arr, cv2.COLOR_BGR2RGB)
     return arr
 

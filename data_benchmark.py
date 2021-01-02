@@ -17,12 +17,12 @@ def main():
         os.path.join(data_dir, file) for file in tf.io.gfile.listdir(data_dir)
     ]
 
-    image_paths = image_paths[:50]
+    image_paths = image_paths[:100]
 
     batch_size = 32
     num_workers = 4
     prefetch_factor = 2
-    epochs = 10
+    epochs = 2
     time_per_step = 0.01
 
     num_steps = ceil(len(image_paths) / batch_size)
@@ -44,7 +44,7 @@ def main():
         for step, batch in tqdm(enumerate(dataset), total=num_steps, desc="Step: "):
             time.sleep(time_per_step)
     total_tf = time.time() - init_tf
-    print(f"Total time tensorflow: {total_tf}")
+    print(f"Total time tensorflow: {total_tf} \n")
     # exit()
 
     # pytorch
